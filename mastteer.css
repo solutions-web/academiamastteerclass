@@ -1,10 +1,32 @@
 .banner{
   background-image:url('images/home-image.jpg');
-  background-size: cover; height: 800px;
-
+  background-size: cover;
+  height: 800px;
 }
 
 .site-navbar-wrap {
   position: fixed !important;
   /* background-color: transparent !important; */
+}
+
+
+@media (max-width: 768px){
+
+  .site-navbar-wrap {
+    background-color: #222;
+  }
+
+  .banner {
+    background-image:url('images/home-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 32%;
+    height: 800px;
+  }
+
+  .site-logo {
+    height: 70px !important;
+    width: auto !important;
+  }
+
 }
