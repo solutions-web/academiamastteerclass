@@ -1,0 +1,10 @@
+.banner{
+  background-image:url('images/home-image.jpg');
+  background-size: cover; height: 800px;
+
+}
+
+.site-navbar-wrap {
+  position: fixed !important;
+  /* background-color: transparent !important; */
+}
