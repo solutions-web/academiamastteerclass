@@ -7,13 +7,14 @@
 .site-navbar-wrap {
   position: fixed !important;
   padding: 0 !important;
+
 }
 
 
 @media (max-width: 768px){
 
   .site-navbar-wrap {
-    background-color: #222;
+    background-color: #121212;
 
   }
 
