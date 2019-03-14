@@ -1,337 +1,147 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide',
- 	once: false
- });
+jQuery(document).ready(function( $ ) {
 
-jQuery(document).ready(function($) {
+  // Back to top button
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('.back-to-top').fadeIn('slow');
+    } else {
+      $('.back-to-top').fadeOut('slow');
+    }
+  });
+  $('.back-to-top').click(function(){
+    $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
+    return false;
+  });
 
-	"use strict";
+  // Header fixed on scroll
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('header-scrolled');
+    } else {
+      $('#header').removeClass('header-scrolled');
+    }
+  });
 
-	
+  if ($(window).scrollTop() > 100) {
+    $('#header').addClass('header-scrolled');
+  }
 
-	var siteMenuClone = function() {
+  // Real view height for mobile devices
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    $('#intro').css({ height: $(window).height() });
+  }
 
-		$('.js-clone-nav').each(function() {
-			var $this = $(this);
-			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
-		});
+  // Initiate the wowjs animation library
+  new WOW().init();
 
+  // Initialize Venobox
+  $('.venobox').venobox({
+    bgcolor: '',
+    overlayColor: 'rgba(6, 12, 34, 0.85)',
+    closeBackground: '',
+    closeColor: '#fff'
+  });
 
-		setTimeout(function() {
-			
-			var counter = 0;
-      $('.site-mobile-menu .has-children').each(function(){
-        var $this = $(this);
-        
-        $this.prepend('<span class="arrow-collapse collapsed">');
+  // Initiate superfish on nav menu
+  $('.nav-menu').superfish({
+    animation: {
+      opacity: 'show'
+    },
+    speed: 400
+  });
 
-        $this.find('.arrow-collapse').attr({
-          'data-toggle' : 'collapse',
-          'data-target' : '#collapseItem' + counter,
-        });
+  // Mobile Navigation
+  if ($('#nav-menu-container').length) {
+    var $mobile_nav = $('#nav-menu-container').clone().prop({
+      id: 'mobile-nav'
+    });
+    $mobile_nav.find('> ul').attr({
+      'class': '',
+      'id': ''
+    });
+    $('body').append($mobile_nav);
+    $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
+    $('body').append('<div id="mobile-body-overly"></div>');
+    $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
 
-        $this.find('> ul').attr({
-          'class' : 'collapse',
-          'id' : 'collapseItem' + counter,
-        });
-
-        counter++;
-
-      });
-
-    }, 1000);
-
-		$('body').on('click', '.arrow-collapse', function(e) {
-      var $this = $(this);
-      if ( $this.closest('li').find('.collapse').hasClass('show') ) {
-        $this.removeClass('active');
-      } else {
-        $this.addClass('active');
-      }
-      e.preventDefault();  
-      
+    $(document).on('click', '.menu-has-children i', function(e) {
+      $(this).next().toggleClass('menu-item-active');
+      $(this).nextAll('ul').eq(0).slideToggle();
+      $(this).toggleClass("fa-chevron-up fa-chevron-down");
     });
 
-		$(window).resize(function() {
-			var $this = $(this),
-				w = $this.width();
+    $(document).on('click', '#mobile-nav-toggle', function(e) {
+      $('body').toggleClass('mobile-nav-active');
+      $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
+      $('#mobile-body-overly').toggle();
+    });
 
-			if ( w > 768 ) {
-				if ( $('body').hasClass('offcanvas-menu') ) {
-					$('body').removeClass('offcanvas-menu');
-				}
-			}
-		})
-
-		$('body').on('click', '.js-menu-toggle', function(e) {
-			var $this = $(this);
-			e.preventDefault();
-
-			if ( $('body').hasClass('offcanvas-menu') ) {
-				$('body').removeClass('offcanvas-menu');
-				$this.removeClass('active');
-			} else {
-				$('body').addClass('offcanvas-menu');
-				$this.addClass('active');
-			}
-		}) 
-
-		// click outisde offcanvas
-		$(document).mouseup(function(e) {
-	    var container = $(".site-mobile-menu");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	      if ( $('body').hasClass('offcanvas-menu') ) {
-					$('body').removeClass('offcanvas-menu');
-				}
-	    }
-		});
-	}; 
-	siteMenuClone();
-
-
-	var sitePlusMinus = function() {
-		$('.js-btn-minus').on('click', function(e){
-			e.preventDefault();
-			if ( $(this).closest('.input-group').find('.form-control').val() != 0  ) {
-				$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) - 1);
-			} else {
-				$(this).closest('.input-group').find('.form-control').val(parseInt(0));
-			}
-		});
-		$('.js-btn-plus').on('click', function(e){
-			e.preventDefault();
-			$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) + 1);
-		});
-	};
-	// sitePlusMinus();
-
-
-	var siteSliderRange = function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 75, 300 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+    $(document).click(function(e) {
+      var container = $("#mobile-nav, #mobile-nav-toggle");
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        if ($('body').hasClass('mobile-nav-active')) {
+          $('body').removeClass('mobile-nav-active');
+          $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
+          $('#mobile-body-overly').fadeOut();
+        }
       }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-	};
-	// siteSliderRange();
+  } else if ($("#mobile-nav, #mobile-nav-toggle").length) {
+    $("#mobile-nav, #mobile-nav-toggle").hide();
+  }
 
+  // Smooth scroll for the menu and links with .scrollto classes
+  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      if (target.length) {
+        var top_space = 0;
 
-	var siteMagnificPopup = function() {
-		$('.image-popup').magnificPopup({
-	    type: 'image',
-	    closeOnContentClick: true,
-	    closeBtnInside: false,
-	    fixedContentPos: true,
-	    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-	     gallery: {
-	      enabled: true,
-	      navigateByImgClick: true,
-	      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-	    },
-	    image: {
-	      verticalFit: true
-	    },
-	    zoom: {
-	      enabled: true,
-	      duration: 300 // don't foget to change the duration also in CSS
-	    }
-	  });
+        if ($('#header').length) {
+          top_space = $('#header').outerHeight();
 
-	  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-	    disableOn: 700,
-	    type: 'iframe',
-	    mainClass: 'mfp-fade',
-	    removalDelay: 160,
-	    preloader: false,
+          if( ! $('#header').hasClass('header-fixed') ) {
+            top_space = top_space - 20;
+          }
+        }
 
-	    fixedContentPos: false
-	  });
-	};
-	siteMagnificPopup();
+        $('html, body').animate({
+          scrollTop: target.offset().top - top_space
+        }, 1500, 'easeInOutExpo');
 
+        if ($(this).parents('.nav-menu').length) {
+          $('.nav-menu .menu-active').removeClass('menu-active');
+          $(this).closest('li').addClass('menu-active');
+        }
 
-	var siteCarousel = function () {
-		if ( $('.nonloop-block-13').length > 0 ) {
-			$('.nonloop-block-13').owlCarousel({
-		    center: false,
-		    items: 1,
-		    loop: true,
-				stagePadding: 0,
-				autoplay: true,
-		    margin: 20,
-		    nav: true,
-		    dots: true,
-				navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-		    responsive:{
-	        600:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 1
-	        },
-	        1000:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 2
-	        },
-	        1200:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 3
-	        }
-		    }
-			});
-		}
+        if ($('body').hasClass('mobile-nav-active')) {
+          $('body').removeClass('mobile-nav-active');
+          $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
+          $('#mobile-body-overly').fadeOut();
+        }
+        return false;
+      }
+    }
+  });
 
+  // Gallery carousel (uses the Owl Carousel library)
+  $(".gallery-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    center:true,
+    responsive: { 0: { items: 1 }, 768: { items: 3 }, 992: { items: 4 }, 1200: {items: 5}
+    }
+  });
 
+  // Buy tickets select the ticket type on click
+  $('#buy-ticket-modal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var ticketType = button.data('ticket-type');
+    var modal = $(this);
+    modal.find('#ticket-type').val(ticketType);
+  })
 
-		if ( $('.nonloop-block-14').length > 0 ) {
-			$('.nonloop-block-14').owlCarousel({
-		    center: false,
-		    items: 1,
-		    loop: true,
-				stagePadding: 0,
-				autoplay: true,
-		    margin: 20,
-		    nav: true,
-		    dots: true,
-				navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-		    responsive:{
-	        600:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 1
-	        },
-	        1000:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 2
-	        }
-	        
-		    }
-			});
-		}
-
-		if ( $('.nonloop-block-15').length > 0 ) {
-			$('.nonloop-block-15').owlCarousel({
-		    center: false,
-		    items: 1,
-		    loop: true,
-				stagePadding: 0,
-				autoplay: true,
-		    margin: 20,
-		    nav: true,
-		    dots: true,
-				navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-		    responsive:{
-	        600:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 1,
-	          nav: false,
-		    		dots: true
-	        },
-	        1000:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 2,
-	          nav: true,
-		    		dots: true
-	        },
-	        1200:{
-	        	margin: 20,
-	        	stagePadding: 0,
-	          items: 3,
-	          nav: true,
-		    		dots: true
-	        }
-		    }
-			});
-		}
-
-		if ( $('.slide-one-item').length > 0 ) {
-			$('.slide-one-item').owlCarousel({
-		    center: false,
-		    items: 1,
-		    loop: true,
-				stagePadding: 0,
-		    margin: 0,
-		    autoplay: true,
-		    pauseOnHover: false,
-		    animateOut: 'fadeOut',
-    		animateIn: 'fadeIn',
-		    nav: true,
-		    navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">']
-		  });
-	  }
-	};
-	siteCarousel();
-
-	var siteStellar = function() {
-		$(window).stellar({
-	    responsive: false,
-	    parallaxBackgrounds: true,
-	    parallaxElements: true,
-	    horizontalScrolling: false,
-	    hideDistantElements: false,
-	    scrollProperty: 'scroll'
-	  });
-	};
-	siteStellar();
-
-	var siteCountDown = function() {
-
-		if ( $('#date-countdown').length > 0 ) {
-			$('#date-countdown').countdown('2020/10/10', function(event) {
-			  var $this = $(this).html(event.strftime(''
-			    + '<span class="countdown-block"><span class="label">%w</span> weeks </span>'
-			    + '<span class="countdown-block"><span class="label">%d</span> days </span>'
-			    + '<span class="countdown-block"><span class="label">%H</span> hr </span>'
-			    + '<span class="countdown-block"><span class="label">%M</span> min </span>'
-			    + '<span class="countdown-block"><span class="label">%S</span> sec</span>'));
-			});
-		}
-				
-	};
-	siteCountDown();
-
-	var siteDatePicker = function() {
-
-		if ( $('.datepicker').length > 0 ) {
-			$('.datepicker').datepicker();
-		}
-
-	};
-	siteDatePicker();
-
-
-	var windowScrolled = function() {
-
-
-		$(window).scroll(function() {
-
-			var $w = $(this), st = $w.scrollTop(), navbar = $('.js-site-navbar') ;
-
-			if ( st > 100 ) {
-				navbar.addClass('scrolled');
-			} else {
-				navbar.removeClass('scrolled');
-			}
-			
-		})
-
-	}
-	windowScrolled();
-
-	var toolTipInit = function() {
-		$('[data-toggle="tooltip"]').tooltip()
-	};
-	toolTipInit();
+// custom code
 
 });
