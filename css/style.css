@@ -13,6 +13,7 @@ body {
   background: #fff;
   color: #121212;
   font-family: "Open Sans", sans-serif;
+  /* font-family: "Advent Pro", sans-serif; */
 }
 
 a {
@@ -717,10 +718,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #speakers .speaker .details {
-  background: rgba(6, 12, 34, 0.76);
+  background: rgba(22, 22, 22, 0.76);
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -120px;
   right: 0;
   text-align: center;
   padding-top: 10px;
@@ -1296,6 +1297,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #contact {
+  display: none;
   padding: 60px 0;
 }
 
@@ -1400,16 +1402,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #footer {
-  display: none;
+  /* display: none; */
 
-  background: #101522;
+  background: #121212;
   padding: 0 0 25px 0;
   color: #eee;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #121212;
+
   padding: 60px 0 30px 0;
 }
 
