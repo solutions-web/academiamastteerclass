@@ -9,10 +9,14 @@
 # General
 --------------------------------------------------------------*/
 /*Red: #f82249*/
+* {
+  font-family: "Raleway", sans-serif;
+}
 body {
   background: #fff;
   color: #121212;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Raleway", sans-serif;
   /* font-family: "Advent Pro", sans-serif; */
 }
 
@@ -483,6 +487,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-size: cover;
   overflow: hidden;
   position: relative;
+
 }
 
 #intro:before {
@@ -1272,7 +1277,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #buy-tickets .card .btn:hover {
-  background-color: #e0072f;
+  background-color: #E0071D;
 }
 
 #buy-tickets #buy-ticket-modal input,
@@ -1291,7 +1296,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #buy-tickets #buy-ticket-modal .btn:hover {
-  background-color: #e0072f;
+  background-color: #fff;
 }
 
 /*--------------------------------------------------------------
