@@ -829,7 +829,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 600;
   background-color: #121212;
   color: #fff;
-  padding: 10px 100px;
+  padding: 10px 50px;
 }
 
 #schedule .nav-tabs a.active {
@@ -1665,7 +1665,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 480px) {
   #schedule .nav-tabs a {
-    padding: 8px 30px;
+    padding: 8px 40px;
+    margin-top: 10px;
   }
 }
 
