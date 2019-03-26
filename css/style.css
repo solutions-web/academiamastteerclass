@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 /*Red: #f82249*/
 * {
-  
+
 }
 body {
   background: #fff;
@@ -728,7 +728,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: rgba(22, 22, 22, 0.76);
   position: absolute;
   left: 0;
-  bottom: -120px;
+  bottom: 0px;
   right: 0;
   text-align: center;
   padding-top: 10px;
