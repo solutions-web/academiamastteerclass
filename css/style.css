@@ -519,8 +519,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  text-align: center;
   padding: 0 15px;
+  text-align: left !important;
 }
 
 #intro h1 {
@@ -537,9 +537,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro p {
+
   color: #ebebeb;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 #intro .play-btn {
