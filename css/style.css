@@ -478,6 +478,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   #intro {
     margin-top: 56px;
   }
+
+  #intro p {
+    font-size: 12px !important;
+    padding-left: 0 !important;
+  }
+
+  #intro i {
+    font-size: 14px !important;
+  }
 }
 
 #intro {
@@ -520,7 +529,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 15px;
-  text-align: left !important;
+  text-align: center;
 }
 
 #intro h1 {
@@ -539,7 +548,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro p {
 
   color: #ebebeb;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 15px;
   font-family: "Roboto Mono", sans-serif;
 }
