@@ -362,6 +362,21 @@ h6 {
   margin: 0;
 }
 
+
+
+.dropdown a {
+  color: #eee;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.dropdown a:hover {
+  background-color: transparent !important;
+  color: #FFB838 !important;
+}
+
+
+
 /* Mobile Nav Toggle */
 
 #mobile-nav-toggle {
