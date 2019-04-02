@@ -482,6 +482,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   #intro p {
     font-size: 12px !important;
     padding-left: 0 !important;
+    line-height: 20px !important;
   }
 
   #intro i {
@@ -551,6 +552,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 400;
   font-size: 15px;
   font-family: "Roboto Mono", sans-serif;
+  line-height: 40px;
 }
 
 #intro .play-btn {
