@@ -754,6 +754,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
+
+}
+
+#treinamentos .treinamento img {
+  min-height: 100px;
 }
 
 #treinamentos .treinamento a {
