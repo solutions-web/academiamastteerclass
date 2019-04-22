@@ -757,8 +757,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 }
 
+#treinamentos .treinamento .icone {
+  padding: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #treinamentos .treinamento img {
-  min-height: 100px;
+  min-height: 4rem;
 }
 
 #treinamentos .treinamento a {
