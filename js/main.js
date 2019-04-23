@@ -143,5 +143,13 @@ jQuery(document).ready(function( $ ) {
   })
 
 // custom code
+  function protasiogallery() {
+    $("#santa-gallery").hide();
+    $("#protasio-gallery").show();
+  }
 
+  function santagallery() {
+    $("#protasio-gallery").hide();
+    $("#santa-gallery").show();
+  }
 });

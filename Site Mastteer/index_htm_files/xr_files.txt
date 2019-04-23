@@ -1,9 +1,0 @@
-index_htm_files
-index.htm
-index_htm_files/100.jpg
-index_htm_files/57.png
-index_htm_files/57@2x.png
-index_htm_files/58.png
-index_htm_files/58@2x.png
-index_htm_files/87.png
-index_htm_files/87@2x.png
