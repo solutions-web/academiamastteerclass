@@ -1375,12 +1375,28 @@ body.mobile-nav-active #mobile-nav-toggle {
 # Buy Tickets Section
 --------------------------------------------------------------*/
 
+#buy-tickets .card-body {
+
+  /* background-color: #ffa828; */
+
+
+}
+
+#buy-tickets .card-title {
+  font-weight: 500 !important;
+}
+
+#buy-tickets .card-price {
+  color: #ffb838;
+
+}
+
 #buy-tickets {
   padding: 60px 0;
 }
 
 #buy-tickets .card {
-  min-height: 500px;
+  /* min-height: 500px; */
   border: none;
   border-radius: 5px;
   transition: all  0.3s ease-in-out;
