@@ -762,7 +762,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 3rem;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: contain;
 }
 
 #treinamentos .treinamento img {
