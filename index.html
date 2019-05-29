@@ -29,27 +29,70 @@
   <link href="css/style.css" rel="stylesheet">
 
 </head>
+<style>
+  .menu-contato {
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    justify-content: space-around;
+    color: #eee;
+    font-size: 14px;
+    background: #111;
+    margin-top: -28px;
+    margin-left: -6%;
+    margin-bottom: 10px;
+    height: 40px;
+  }
+  .menu-contato i {
+    /* color: #ffb838; */
 
+  }
+  .menu-contato .left, .menu-contato .right {
+    display: flex;
+    list-style: none;
+    margin-top: 10px;
+  }
+  .menu-contato li {
+    margin-left: 1rem;
+  }
+    @media(max-width: 768px) {
+      .menu-contato {
+        display: none;
+      }
+    }
+
+</style>
 <body>
-
   <!--==========================
   Header
   ============================-->
   <header id="header">
-    <div class="container">
+      <nav class="menu-contato">
+        <ul class="left">
+          <li><i style="font-size:16px" class="fa">&#xf0e0;</i> contato@academiamastteerclass.com.br</li>
+          <li>|</li>
+          <li> <i style="font-size:16px" class="fa">&#xf095;</i> (51) 99999-2222</li>
+        </ul>
+        <ul class="right">
+          <li><a><i style="font-size:16px" class="fa">&#xf230;</i> facebook</a></li>
+          <li>|</li>
+          <li><a><i style="font-size:16px" class="fa">&#xf16d;</i> instagram</a></li>
+        </ul>
+      </nav>
 
+    <div class="container">
       <div id="logo" class="pull-left">
         <a href="#intro" class="scrollto"><img src="img/logo.png"  alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">
+
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
           <li><a href="#treinamentos">Treinamentos</a></li>
           <!-- <li><a href="#schedule">Agenda</a></li> -->
           <li><a href="#galeria">Galeria</a></li>
           <li class="has-children">
-          <a href="" class="disable">Mídias Socias</a>
+          <a href="javascript:void(0)" class="disable">Redes Socias</a>
             <ul class="dropdown arrow-top" style="background-color: #111; max-width: 8rem">
             <li><a href="https://www.instagram.com/mastteerclasscompany/" style="color: #eee"><i class="fa fa-instagram" style="margin-right: 5px"></i>     Instagram</a></li>
             <li><a href="https://www.facebook.com/MastteerClassCompany/" style="color: #eee"><i class="fa fa-facebook-official"style="margin-right: 5px"></i>      Facebook</a></li>
@@ -180,22 +223,22 @@ Intro Section
               <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img2')"><img id="img2thumb" class="gallery-image" src="protasio/img2.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img2')"><img id="img2thumb" class="gallery-image" src="protasio/img3.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img3')"><img id="img3thumb" class="gallery-image" src="protasio/img3.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img1')"><img id="img1thumb" class="gallery-image" src="protasio/img4.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img4')"><img id="img4thumb" class="gallery-image" src="protasio/img4.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img2')"><img id="img2thumb" class="gallery-image" src="protasio/img5.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img5')"><img id="img5thumb" class="gallery-image" src="protasio/img5.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img1')"><img id="img1thumb" class="gallery-image" src="protasio/img6.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img6')"><img id="img6thumb" class="gallery-image" src="protasio/img6.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img1')"><img id="img1thumb" class="gallery-image" src="protasio/img7.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img7')"><img id="img7thumb" class="gallery-image" src="protasio/img7.png" width="100%"></a>
             </div>
             <div class="col col-12 col-lg-4">
-              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img1')"><img id="img1thumb" class="gallery-image" src="protasio/img8.png" width="100%"></a>
+              <a href="javascript:void(0)" onclick="imagelightbox('#protasio-img8')"><img id="img8thumb" class="gallery-image" src="protasio/img8.png" width="100%"></a>
             </div>
           </div>
         </div>
@@ -247,6 +290,12 @@ Intro Section
             <!--PROTASIO-->
             <img id="protasio-img1" class="modal-image" src="protasio/img1.png" width="100%">
             <img id="protasio-img2" class="modal-image" src="protasio/img2.png" width="100%">
+            <img id="protasio-img3" class="modal-image" src="protasio/img3.png" width="100%">
+            <img id="protasio-img4" class="modal-image" src="protasio/img4.png" width="100%">
+            <img id="protasio-img5" class="modal-image" src="protasio/img5.png" width="100%">
+            <img id="protasio-img6" class="modal-image" src="protasio/img6.png" width="100%">
+            <img id="protasio-img7" class="modal-image" src="protasio/img7.png" width="100%">
+            <img id="protasio-img8" class="modal-image" src="protasio/img8.png" width="100%">
             <!--VIAMAO-->
             <img id="viamao-img1" class="modal-image" src="viamao/img1.png" width="100%">
             <img id="viamao-img2" class="modal-image" src="viamao/img2.png" width="100%">
@@ -279,7 +328,7 @@ Intro Section
         <p class="lead text-center mb-5">
           Ao adquirir o seu Plano Anual na Academia Mastteer Class Company,
           você terá disponível toda nossa estrutura, além de acesso às aulas de <strong>Treinamento Funcional</strong>,
-          <strong>Zumba</strong> e <strong>Aero Ritmos</strong>, <strong>Jump</strong> e <strong>Step</strong>, e também das <strong>Modalidades de Lutas</strong>; tudo sem acréscimo de taxa.
+          <strong>Zumba</strong> e <strong>Aero Ritmos</strong>, <strong>Jump</strong> e <strong>Step</strong>, e também das Modalidades de <strong>Lutas</strong>; tudo sem acréscimo de taxa.
         </p>
         <div class="row">
           <div class="col-lg-3">
